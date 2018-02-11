@@ -1,0 +1,57 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+}
+
+img {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    @media screen and (max-width: 740px) {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+.details-container {
+    flex-grow: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    div {
+        width: 50%;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-between;
+    height: 150px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+md-spinner {
+    align-self: center;
+}
+
+.small-script {
+    font-size: 13px;
+    position: relative;
+    font-size: 13px;
+    position: relative;
+    bottom: -13px;
+    text-align: left;
+}

@@ -92,7 +92,7 @@ export class UnicornService {
       const baby = {
         name: this.getBabyName(unicorn.name, mateName),
         age: 0,
-        picture: "../../assets/baby-unicorn.jpg",
+        picture: this.getRandomPic("baby"),
         gender: this.getRandomGender(),
         color: mixColors(unicorn.color, mate.color, 40)
       };
@@ -109,8 +109,7 @@ export class UnicornService {
         return parseInt(h, 16);
       } // convert a hex value to decimal
       weight = typeof weight !== "undefined" ? weight : 50; // set the weight to 50%, if that argument is omitted
-      let color = "#";
-
+      let color = "";
       for (let i = 0; i <= 5; i += 2) {
         // loop through each of the 3 hex pairs—red, green, and blue
         const v1 = h2d(color_1.substr(i, 2)); // extract the current pairs
@@ -148,7 +147,7 @@ export class UnicornService {
           appConstants.unicornImages.male,
           appConstants.unicornImages.male.length
         );
-      case "default":
+      default:
         return getRandomElement(
           appConstants.unicornImages.baby,
           appConstants.unicornImages.baby.length

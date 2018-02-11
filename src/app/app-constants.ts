@@ -7,7 +7,7 @@ const appConstants = {
   unicornImages: {
     female: ["./assets/unicorn1.png"],
     male: ["./assets/unicorn3.png"],
-    baby: ["./assets/baby-unicorn.jpg"]
+    baby: ["./assets/baby-unicorn.png"]
   }
 };
 
