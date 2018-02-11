@@ -1,0 +1,35 @@
+<div *ngIf="unicorn.age >=5">
+
+    <h2>Select Mate</h2>
+    <form #mateForm='ngForm'>
+        <md-select placeholder="Mate" name="mate" [(ngModel)]="mateName" required>
+            <md-option *ngFor="let unicorn of matingUnicorns" [value]="unicorn.name">
+                {{unicorn.name}}
+                <span><b>Gender: </b>{{unicorn.gender}} </span>
+            </md-option>
+        </md-select>
+        <button md-button md-raised-button color="primary" [disabled]="!mateForm.valid || isSubmited" (click)="mateUnicorns()">Mate</button>
+    </form>
+</div>
+<md-spinner *ngIf="isSubmited"></md-spinner>
+<div>
+    <img src="{{unicorn.picture}}" />
+    <div>
+        <h2>Personal Info </h2>
+        <div>
+            <b>Name:</b> {{unicorn.name}}
+        </div>
+        <div>
+            <div>
+                <b>Color:</b> {{unicorn.color}}
+            </div>
+            <div class="displayColor" [ngStyle]="{'background-color':'#'+color}"> </div>
+        </div>
+        <div>
+            <b>Gender:</b> {{unicorn.gender}}
+        </div>
+        <div>
+            <b>Age:</b> {{unicorn.age}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.unicornsList {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 26px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.addUnicorn {
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+    color: white;
+}

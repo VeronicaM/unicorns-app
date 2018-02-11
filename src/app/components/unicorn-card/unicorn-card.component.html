@@ -1,0 +1,26 @@
+<md-card class="unicorn-card" [ngStyle]="{'background-color':'#'+unicorn.color}">
+    <md-card-header>
+        <md-card-title class="card-header">
+            <h2> {{unicorn.name}} </h2>
+        </md-card-title>
+    </md-card-header>
+    <img md-card-image [src]="unicorn.picture" />
+    <md-card-content>
+        <h2>Personal Info </h2>
+        <div>
+            <b>Name:</b> {{unicorn.name}}
+        </div>
+        <div>
+            <div>
+                <b>Color:</b> {{unicorn.color}}
+            </div>
+            <div class="displayColor" [ngStyle]="{'background-color':color}"> </div>
+        </div>
+        <div>
+            <b>Gender:</b> {{unicorn.gender}}
+        </div>
+        <div>
+            <b>Age:</b> {{unicorn.age}}
+        </div>
+    </md-card-content>
+</md-card>

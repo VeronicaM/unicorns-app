@@ -1,0 +1,29 @@
+<img [src]="unicorn.picture" />
+<div class="form-container">
+    <h2>Personal Info</h2>
+    <form #unicornForm='ngForm' (change)="autoSave()">
+        <md-input-container floatPlaceholder="always">
+            <input placeholder="Name" type="text" maxlength="200" #titleInputHint mdInput name="name" required [(ngModel)]="unicorn.name">
+            <md-hint align="end" aria-live="polite"> {{titleInputHint.value.length}} / 200 </md-hint>
+            <md-error>Name is required</md-error>
+        </md-input-container>
+        <md-input-container floatPlaceholder="always">
+            <input placeholder="Color" type="text" maxlength="6" #titleInputHint mdInput name="color" required [(ngModel)]="unicorn.color">
+            <md-hint align="end" aria-live="polite"> {{titleInputHint.value.length}} / 6 </md-hint>
+            <md-error>Color is required</md-error>
+        </md-input-container>
+        <md-input-container>
+            <input mdInput placeholder="Age" type="number" min="5" name="age" [(ngModel)]="unicorn.age" required/>
+            <md-error>Age is required </md-error>
+        </md-input-container>
+        <md-select placeholder="Gender" name="gender" [ngModel]="unicorn.gender" (change)="handleChange($event);" required>
+            <md-option value="female"> female </md-option>
+            <md-option value="male"> male </md-option>
+            <md-option value="other"> other </md-option>
+        </md-select>
+        <button md-button md-raised-button color="primary" [disabled]="!unicornForm.valid || isSubmited" (click)="createUnicorn()">
+          Create
+        </button>
+        <md-spinner *ngIf="isSubmited"></md-spinner>
+    </form>
+</div>
