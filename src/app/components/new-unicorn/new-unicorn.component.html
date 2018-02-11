@@ -7,11 +7,15 @@
             <md-hint align="end" aria-live="polite"> {{nameInput.value.length}} / 200 </md-hint>
             <md-error>Name is required</md-error>
         </md-input-container>
+
         <md-input-container floatPlaceholder="always">
-            <input placeholder="Color" type="text" maxlength="6" #colorInput mdInput name="colorInput" required [(ngModel)]="unicorn.color">
-            <md-hint align="end" aria-live="polite"> {{colorInput.value.length}} / 6 </md-hint>
-            <md-error *ngIf="colorInput.errors">
+            <input placeholder="Color" type="text" maxlength="6" #colorInput="ngModel" name="colorInput" mdInput required [(ngModel)]="unicorn.color" pattern="^[0-9A-F]{6}$">
+            <md-hint align="end" aria-live="polite"> {{colorInput.value?.length}} / 6 </md-hint>
+            <md-error *ngIf="colorInput.errors?.required">
                 Color is required
+            </md-error>
+            <md-error *ngIf="colorInput.errors?.pattern">
+                Wrong hex color. (Required format FFFFAA)
             </md-error>
         </md-input-container>
         <md-input-container>
@@ -24,8 +28,8 @@
             <md-option value="other"> other </md-option>
         </md-select>
         <button md-button md-raised-button color="primary" [disabled]="!unicornForm.valid || isSubmited" (click)="createUnicorn()">
-          Create
-        </button>
+      Create
+    </button>
         <md-spinner *ngIf="isSubmited"></md-spinner>
     </form>
 </div>
