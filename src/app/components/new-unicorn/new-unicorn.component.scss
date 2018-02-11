@@ -29,14 +29,11 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 75%;
+    height: 100%;
     padding: 20px;
     md-input-container,
     md-select,
     button {
         width: 80%;
-    }
-    @media screen and (max-width: 500px) {
-        height: 100%;
     }
 }

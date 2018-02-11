@@ -1,7 +1,10 @@
 @import "../../constants";
 .mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 2;
-    position: relative;
+    width: 100% !important;
     background-color: $primary !important;
 }
 
