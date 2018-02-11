@@ -1,13 +1,14 @@
 <img [src]="unicorn.picture" />
+<md-spinner *ngIf="isSubmited"></md-spinner>
 <div class="form-container">
-    <h2>Personal Info</h2>
+
     <form #unicornForm='ngForm' (change)="autoSave()">
+        <h2>Personal Info</h2>
         <md-input-container floatPlaceholder="always">
             <input placeholder="Name" type="text" maxlength="200" #nameInput mdInput name="name" required [(ngModel)]="unicorn.name">
             <md-hint align="end" aria-live="polite"> {{nameInput.value.length}} / 200 </md-hint>
             <md-error>Name is required</md-error>
         </md-input-container>
-
         <md-input-container floatPlaceholder="always">
             <input placeholder="Color" type="text" maxlength="6" #colorInput="ngModel" name="colorInput" mdInput required [(ngModel)]="unicorn.color" pattern="^[0-9A-F]{6}$">
             <md-hint align="end" aria-live="polite"> {{colorInput.value?.length}} / 6 </md-hint>
@@ -30,6 +31,6 @@
         <button md-button md-raised-button color="primary" [disabled]="!unicornForm.valid || isSubmited" (click)="createUnicorn()">
       Create
     </button>
-        <md-spinner *ngIf="isSubmited"></md-spinner>
+
     </form>
 </div>

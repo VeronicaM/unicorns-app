@@ -10,3 +10,10 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+
+md-spinner {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: 2;
+}

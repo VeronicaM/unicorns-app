@@ -1,4 +1,5 @@
 <img src="{{unicorn.picture}}" />
+<md-spinner *ngIf="isSubmited"></md-spinner>
 <div class="details-container">
     <h1>{{unicorn.name}}</h1>
     <div>
@@ -31,6 +32,6 @@
             </md-select>
             <button md-button md-raised-button color="accent" [disabled]="!mateForm.valid || isSubmited" (click)="mateUnicorns()">Mate</button>
         </form>
-        <md-spinner *ngIf="isSubmited"></md-spinner>
+
     </div>
 </div>

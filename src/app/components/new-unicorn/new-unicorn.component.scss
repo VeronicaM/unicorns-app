@@ -9,7 +9,7 @@ img {
     height: 500px;
     width: 500px;
     margin: 0 auto;
-    @media screen and (max-width: 740px) {
+    @media screen and (max-width: 760px) {
         height: 300px;
         width: 300px;
     }
@@ -19,7 +19,7 @@ img {
     flex-grow: 1;
     margin: 10px;
     text-align: center;
-    @media screen and (max-width: 740px) {
+    @media screen and (max-width: 760px) {
         text-align: left;
     }
 }
@@ -36,7 +36,7 @@ form {
     button {
         width: 80%;
     }
-    @media screen and (max-width: 740px) {
-        align-items: flex-start;
+    @media screen and (max-width: 500px) {
+        height: 100%;
     }
 }
