@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== "development") {
 app.engine("html", require("ejs").renderFile);
 app.set("views", path.join(__dirname, "dist"));
 app.set("view engine", "html");
-app.use(favicon(__dirname + "/dist/favicon.ico"));
+app.use(favicon(path.join(__dirname, "dist/favicon.ico")));
 
 app.get("*", function(req, res, next) {
     res.render("index.html");
