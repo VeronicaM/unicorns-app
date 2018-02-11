@@ -1,7 +1,6 @@
 <img [src]="unicorn.picture" />
 <md-spinner *ngIf="isSubmited"></md-spinner>
 <div class="form-container">
-
     <form #unicornForm='ngForm' (change)="autoSave()">
         <h2>Personal Info</h2>
         <md-input-container floatPlaceholder="always">
