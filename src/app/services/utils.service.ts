@@ -14,7 +14,7 @@ export class UtilsService {
     return result ? result : null;
   }
   addTransparency(rgbValues, transparency) {
-    if(rgbValues){
+    if (rgbValues) {
       return `rgba(${parseInt(rgbValues[1], 16)},${parseInt(
         rgbValues[2],
         16
@@ -44,8 +44,5 @@ export class UtilsService {
       color += value; // concatenate val to our new color string
     }
     return color; // PROFIT!
-  }
-  validateColorInput(color) {
-    return /^[0-9A-F]{6}$/i.test(color);
   }
 }

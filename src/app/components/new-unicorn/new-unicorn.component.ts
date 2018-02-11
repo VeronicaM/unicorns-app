@@ -3,7 +3,7 @@ import { Unicorn } from "../../models/unicorn.model";
 import { UnicornService } from "../../services/unicorn.service";
 import { Router } from "@angular/router";
 import { NotificationService } from "../../services/notification.service";
-
+import appConstants from "../../app-constants";
 @Component({
   selector: "app-new-unicorn",
   templateUrl: "./new-unicorn.component.html",
@@ -35,7 +35,7 @@ export class NewUnicornComponent implements OnInit, OnDestroy {
       this.unicornService.createUnicorn(this.unicorn);
       //simulating network latency
       setTimeout(() => {
-        this.router.navigate(["/unicorn", this.unicorn.name]);
+        this.router.navigate([appConstants.routes.UNICORN, this.unicorn.name]);
         this.notificationService.open("Unicorn created!", "success-toaster");
         this.unicornService.cleanSavedUnicorn();
         clearInterval(this.autoSaveInterval);
