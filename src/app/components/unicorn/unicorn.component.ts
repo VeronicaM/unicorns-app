@@ -24,7 +24,6 @@ export class UnicornComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("here");
     this.route.params.map(params => params["id"]).subscribe(id => {
       const name = decodeURIComponent(id);
       this.unicorn = this.unicornsService.getUnicorn(name);
