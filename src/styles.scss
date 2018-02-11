@@ -17,3 +17,8 @@ md-spinner {
     left: 40%;
     z-index: 2;
 }
+
+:host input.md-input-element {
+    color: red;
+    font-size: 18px;
+}
