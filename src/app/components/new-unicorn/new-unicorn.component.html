@@ -3,14 +3,16 @@
     <h2>Personal Info</h2>
     <form #unicornForm='ngForm' (change)="autoSave()">
         <md-input-container floatPlaceholder="always">
-            <input placeholder="Name" type="text" maxlength="200" #titleInputHint mdInput name="name" required [(ngModel)]="unicorn.name">
-            <md-hint align="end" aria-live="polite"> {{titleInputHint.value.length}} / 200 </md-hint>
+            <input placeholder="Name" type="text" maxlength="200" #nameInput mdInput name="name" required [(ngModel)]="unicorn.name">
+            <md-hint align="end" aria-live="polite"> {{nameInput.value.length}} / 200 </md-hint>
             <md-error>Name is required</md-error>
         </md-input-container>
         <md-input-container floatPlaceholder="always">
-            <input placeholder="Color" type="text" maxlength="6" #titleInputHint mdInput name="color" required [(ngModel)]="unicorn.color">
-            <md-hint align="end" aria-live="polite"> {{titleInputHint.value.length}} / 6 </md-hint>
-            <md-error>Color is required</md-error>
+            <input placeholder="Color" type="text" maxlength="6" #colorInput mdInput name="colorInput" required [(ngModel)]="unicorn.color">
+            <md-hint align="end" aria-live="polite"> {{colorInput.value.length}} / 6 </md-hint>
+            <md-error *ngIf="colorInput.errors">
+                Color is required
+            </md-error>
         </md-input-container>
         <md-input-container>
             <input mdInput placeholder="Age" type="number" min="5" name="age" [(ngModel)]="unicorn.age" required/>

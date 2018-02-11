@@ -31,7 +31,6 @@ export class NewUnicornComponent implements OnInit, OnDestroy {
   }
   createUnicorn() {
     this.isSubmited = true;
-
     if (this.unicornService.isUniqueName(this.unicorn.name)) {
       this.unicornService.createUnicorn(this.unicorn);
       //simulating network latency
@@ -55,6 +54,7 @@ export class NewUnicornComponent implements OnInit, OnDestroy {
   }
   handleChange(event) {
     this.unicorn.picture = this.unicornService.getRandomPic(event.value);
+    this.unicorn.gender = event.value;
     this.autoSave();
   }
 }

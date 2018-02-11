@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import appConstants from "../app-constants";
+import { UtilsService } from "./utils.service";
 @Injectable()
 export class UnicornService {
   unicorns;
   savedUnicorn;
-  constructor() {}
+  constructor(private utilsService: UtilsService) {}
   initiUnicorns() {
     const initialUnicorns = [
       {
@@ -74,7 +75,7 @@ export class UnicornService {
         age: 5,
         gender: randomGender,
         picture: randomPic,
-        color: "00FF00"
+        color: "4574E0"
       };
     }
     return JSON.parse(localStorage.getItem("savedUnicorn"));
@@ -94,35 +95,12 @@ export class UnicornService {
         age: 0,
         picture: this.getRandomPic("baby"),
         gender: this.getRandomGender(),
-        color: mixColors(unicorn.color, mate.color, 40)
+        color: this.utilsService.mixColors(unicorn.color, mate.color, 40)
       };
       this.createUnicorn(baby);
       return baby;
     }
     return null;
-
-    function mixColors(color_1, color_2, weight) {
-      function d2h(d) {
-        return d.toString(16);
-      } // convert a decimal value to hex
-      function h2d(h) {
-        return parseInt(h, 16);
-      } // convert a hex value to decimal
-      weight = typeof weight !== "undefined" ? weight : 50; // set the weight to 50%, if that argument is omitted
-      let color = "";
-      for (let i = 0; i <= 5; i += 2) {
-        // loop through each of the 3 hex pairs—red, green, and blue
-        const v1 = h2d(color_1.substr(i, 2)); // extract the current pairs
-        const v2 = h2d(color_2.substr(i, 2));
-        // combine the current pairs from each source color, according to the specified weight
-        let value = d2h(Math.floor(v2 + (v1 - v2) * (weight / 100.0)));
-        while (value.length < 2) {
-          value = "0" + value;
-        } // prepend a '0' if val results in a single digit
-        color += value; // concatenate val to our new color string
-      }
-      return color; // PROFIT!
-    }
   }
 
   getBabyName(name1, name2) {

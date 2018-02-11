@@ -15,6 +15,7 @@ import { UnicornsComponent } from "./components/unicorns/unicorns.component";
 import { MaterialModule } from "@angular/material";
 import { NotificationService } from "./services/notification.service";
 import { TopbarComponent } from "./components/topbar/topbar.component";
+import { UtilsService } from "./services/utils.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { TopbarComponent } from "./components/topbar/topbar.component";
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [UnicornService, NotificationService],
+  providers: [UnicornService, NotificationService, UtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
